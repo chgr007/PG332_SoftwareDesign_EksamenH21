@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 
 namespace PG332_SoftwareDesign_EksamenH21.Model
 {
-    public class Specialization
+    public class Specialization : IProgressable
     {
         public long Id { get; set; }
         public CoursesInSpecialization SpecializationCourses { get; set; }
         [NotMapped]
-        public IProgression Progression { get; set; }
+        public bool Published { get; }
+
+        public Specialization()
+        {
+            Published = true;
+        }
     }
 }
