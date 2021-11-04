@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PG332_SoftwareDesign_EksamenH21.Model
 {
-    interface IFinishable : IProgressable
+    public interface IFinishable : IProgressable
     {
         public bool Finished { get; set; }
     }

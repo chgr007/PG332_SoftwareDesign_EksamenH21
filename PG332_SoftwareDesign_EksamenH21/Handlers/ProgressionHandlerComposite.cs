@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace PG332_SoftwareDesign_EksamenH21.Handlers
 {
-    class ProgressionHandlerComposite : IProgressionHandler<IProgressable>
+    public class ProgressionHandlerComposite : IProgressionHandler<IProgressable>
     {
         public IProgressable Progressable { get; }
-        public List<IProgressionHandler<IProgressable>> Children { get; set; }
+        public List<IProgressionHandler<IProgressable>> Children { get; set; } 
 
         public ProgressionHandlerComposite(IProgressable progressable)
         {
             Progressable = progressable;
+            Children = new();
         }
 
         public double GetProgression()

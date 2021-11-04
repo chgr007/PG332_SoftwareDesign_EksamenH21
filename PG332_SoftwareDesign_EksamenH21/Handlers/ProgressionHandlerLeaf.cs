@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PG332_SoftwareDesign_EksamenH21.Handlers
 {
-    class ProgressionHandlerLeaf : IProgressionHandler<IFinishable>
+    public class ProgressionHandlerLeaf : IProgressionHandler<IProgressable>
     {
-        public IFinishable Progressable { get; }
+        public IProgressable Progressable { get; }
 
         public ProgressionHandlerLeaf(IFinishable progressable)
         {
@@ -18,7 +18,8 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
 
         public double GetProgression()
         {
-            if (Progressable.Published && Progressable.Finished)
+            IFinishable finishable = (IFinishable)Progressable;
+            if (finishable.Published && finishable.Finished)
             {
                 return 1.00;
             }
