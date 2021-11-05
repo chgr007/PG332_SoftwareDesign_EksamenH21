@@ -16,7 +16,7 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
             Publishable = progressable;
         }
 
-        public double GetFinishedPercentage()
+        public double GetFinishedPercent()
         {
             IFinishable f = Publishable as IFinishable;
             if (f.Finished)

@@ -18,7 +18,7 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
             Children = new();
         }
 
-        public double GetFinishedPercentage()
+        public double GetFinishedPercent()
         {
             /*if (Publishable is Specialization)
             {
@@ -61,10 +61,7 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
             
             foreach (var c in Children)
             {
-                if (c.Publishable.Published)
-                {
-                    returnValue += c.GetFinishedPercentage();
-                }
+                returnValue += c.GetFinishedPercent();
             }
             
 

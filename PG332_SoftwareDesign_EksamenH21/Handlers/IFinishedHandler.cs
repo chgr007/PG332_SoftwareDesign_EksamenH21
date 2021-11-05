@@ -11,6 +11,6 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
     {
         public T Publishable { get; }
         
-        public double GetFinishedPercentage();
+        public double GetFinishedPercent();
     }
 }
