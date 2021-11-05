@@ -21,6 +21,11 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
 
         public double GetPublishedPercent()
         {
+            if (!Publishable.Published)
+            {
+                return 0.00;
+            }
+
             if (Publishable is Semester)
             {
                 Semester s = Publishable as Semester;

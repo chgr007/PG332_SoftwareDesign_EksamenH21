@@ -44,6 +44,7 @@ namespace Test
             task2.Published = true;
 
             TaskSet taskSet = new();
+            taskSet.Published = true;
             taskSet.Tasks.Add(task1);
             taskSet.Tasks.Add(task2);
 
@@ -86,6 +87,7 @@ namespace Test
             lecture2.TaskSet = taskSet2;
 
             Course course = new();
+            course.Published = true;
             course.Lectures.Add(lecture1);
             course.Lectures.Add(lecture2);
 
