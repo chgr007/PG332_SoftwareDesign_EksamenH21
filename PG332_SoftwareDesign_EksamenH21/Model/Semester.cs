@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PG332_SoftwareDesign_EksamenH21
 {
-    public class Semester : IProgressable
+    public class Semester : IPublishable
     {
         public long Id { get; set; }
         public List<Course> Courses { get; set; } = new();

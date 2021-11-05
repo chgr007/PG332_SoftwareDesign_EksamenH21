@@ -7,10 +7,10 @@ using PG332_SoftwareDesign_EksamenH21.Model;
 
 namespace PG332_SoftwareDesign_EksamenH21.Handlers
 {
-    public interface IProgressionHandler<T> where T: IProgressable
+    public interface IPublishedHandler<T> where T: IPublishable
     {
-        public T Progressable { get; }
-        
-        public double GetProgression();
+        public IPublishable Publishable { get; }
+
+        public double GetPublishedPercent();
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PG332_SoftwareDesign_EksamenH21
 {
-    public class Task : IProgressable, IFinishable
+    public class Task : IPublishable, IFinishable
     {
         public long Id { get; set; }
         public string Name { get; set; }

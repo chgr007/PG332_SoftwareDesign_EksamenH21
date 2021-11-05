@@ -21,9 +21,9 @@ namespace Test
             task.Published = true;
             task.Finished = false;
 
-            ProgressionHandlerLeaf taskP = new(task);
+            FinishedHandlerLeaf taskP = new(task);
 
-            Assert.AreEqual(0.00, taskP.GetProgression());
+            Assert.AreEqual(0.00, taskP.GetFinishedPercentage());
         }
 
         [Test]
@@ -33,9 +33,9 @@ namespace Test
             task.Published = true;
             task.Finished = true;
 
-            ProgressionHandlerLeaf taskP = new(task);
+            FinishedHandlerLeaf taskP = new(task);
 
-            Assert.AreEqual(1.00, taskP.GetProgression());
+            Assert.AreEqual(1.00, taskP.GetFinishedPercentage());
         }
 
         [Test]
@@ -58,11 +58,11 @@ namespace Test
             taskSet.Tasks.Add(task1);
             taskSet.Tasks.Add(task2);
 
-            ProgressionHandlerComposite taskSetP = new(taskSet);
+            FinishedHandlerComposite taskSetP = new(taskSet);
             //taskSetP.Children.Add(task1P);
             //taskSetP.Children.Add(task2P);
 
-            Assert.AreEqual(0.50, taskSetP.GetProgression());
+            Assert.AreEqual(0.50, taskSetP.GetFinishedPercentage());
         }
         
         [Test]
@@ -109,9 +109,9 @@ namespace Test
             course.Lectures.Add(lecture1);
             course.Lectures.Add(lecture2);
 
-            ProgressionHandlerComposite courseP = new(course);
+            FinishedHandlerComposite courseP = new(course);
 
-            Assert.AreEqual(0.37, courseP.GetProgression());
+            Assert.AreEqual(0.37, courseP.GetFinishedPercentage());
 
         }
     }

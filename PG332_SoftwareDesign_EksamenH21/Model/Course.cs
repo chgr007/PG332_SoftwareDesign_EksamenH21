@@ -5,7 +5,7 @@ using PG332_SoftwareDesign_EksamenH21.Model;
 
 namespace PG332_SoftwareDesign_EksamenH21
 {
-    public class Course : IProgressable
+    public class Course : IPublishable
     {
         [NotMapped]
         public SemesterEnum Semester { get; set; }
