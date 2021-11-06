@@ -22,8 +22,8 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
         {
             /*if (Publishable is Specialization)
             {
-                //Specialization specialization = (Specialization)Publishable;
-                //foreach (var semester in specialization.S)
+                Specialization s = Publishable as Specialization;
+                foreach (var semester in s.Semesters)
             }
             else */if (Publishable is Semester)
             {
