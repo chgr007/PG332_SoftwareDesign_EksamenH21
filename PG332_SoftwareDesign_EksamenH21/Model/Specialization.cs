@@ -10,13 +10,28 @@ namespace PG332_SoftwareDesign_EksamenH21.Model
     public class Specialization : IProgressable
     {
         public long Id { get; set; }
-        public CoursesInSpecialization SpecializationCourses { get; set; }
+        public string Name { get; set; }
+        public string? Code { get; set; }
+        public List<CoursesInSpecialization>? CoursesInSpecializations { get; set; }
         [NotMapped]
-        public bool Published { get; }
+        public bool Published { get; set; } = false;
 
-        public Specialization()
+        protected bool Equals(Specialization other)
         {
-            Published = true;
+            return Id == other.Id && Name == other.Name && Code == other.Code;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Specialization) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Name, Code);
         }
     }
 }

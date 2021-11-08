@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using PG332_SoftwareDesign_EksamenH21.Model;
 using PG332_SoftwareDesign_EksamenH21.Repository;
 
 namespace PG332_SoftwareDesign_EksamenH21 {
@@ -9,6 +10,7 @@ namespace PG332_SoftwareDesign_EksamenH21 {
 
             ConfigFile cf = new();
             cf.AddDummyData();
+
             
         }
     }

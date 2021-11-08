@@ -13,8 +13,7 @@ namespace PG332_SoftwareDesign_EksamenH21
 
         public void AddDummyData()
         {
-            using (var db = new TrackerContext())
-            {
+                UserDao db = new UserDao();
                 User user = new();
                 Address address = new();
                 address.City = "Oslo";
@@ -51,10 +50,8 @@ namespace PG332_SoftwareDesign_EksamenH21
                 lecture.TaskSet.Tasks.Add(task_c);
 
 
-                db.Add(user);
-
-                db.SaveChanges();
-            }
+                db.Save(user);
+            
         }
     }
 }
