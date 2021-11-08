@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace PG332_SoftwareDesign_EksamenH21.Handlers
 {
-    public class FinishedHandlerComposite : IFinishedHandler<IPublishable>
+    public class FinishedHandlerComposite : IFinishedHandler<IProgressable>
     {
-        public IPublishable Publishable { get; }
-        public List<IFinishedHandler<IPublishable>> Children { get; set; } 
+        public IProgressable Publishable { get; }
+        public List<IFinishedHandler<IProgressable>> Children { get; set; } 
 
-        public FinishedHandlerComposite(IPublishable publishable)
+        public FinishedHandlerComposite(IProgressable publishable)
         {
             Publishable = publishable;
             Children = new();
@@ -20,9 +20,9 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
 
         public double GetFinishedPercent()
         {
-            /*if (Publishable is Specialization)
+            /*if (Progressable is Specialization)
             {
-                Specialization s = Publishable as Specialization;
+                Specialization s = Progressable as Specialization;
                 foreach (var semester in s.Semesters)
             }
             else */if (Publishable is Semester)

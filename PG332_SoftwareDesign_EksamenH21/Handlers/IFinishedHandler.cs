@@ -7,7 +7,7 @@ using PG332_SoftwareDesign_EksamenH21.Model;
 
 namespace PG332_SoftwareDesign_EksamenH21.Handlers
 {
-    public interface IFinishedHandler<T> where T: IPublishable
+    public interface IFinishedHandler<T> where T: IProgressable
     {
         public T Publishable { get; }
         

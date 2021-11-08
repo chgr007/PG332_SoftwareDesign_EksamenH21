@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PG332_SoftwareDesign_EksamenH21.Model
 {
-    public interface IPublishable
+    public interface IProgressable
     {
         public bool Published { get; }
     }

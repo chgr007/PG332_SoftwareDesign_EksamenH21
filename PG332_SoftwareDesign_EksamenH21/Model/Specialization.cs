@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PG332_SoftwareDesign_EksamenH21.Model
 {
-    public class Specialization : IPublishable
+    public class Specialization : IProgressable
     {
         public long Id { get; set; }
         public CoursesInSpecialization SpecializationCourses { get; set; }

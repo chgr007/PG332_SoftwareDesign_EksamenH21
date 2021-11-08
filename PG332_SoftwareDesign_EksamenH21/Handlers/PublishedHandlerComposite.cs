@@ -7,50 +7,50 @@ using PG332_SoftwareDesign_EksamenH21.Model;
 
 namespace PG332_SoftwareDesign_EksamenH21.Handlers
 {
-    public class PublishedHandlerComposite: IPublishedHandler<IPublishable>
+    public class PublishedHandlerComposite: IPublishedHandler<IProgressable>
     {
-        public IPublishable Publishable { get; }
+        public IProgressable Progressable { get; }
 
-        public List<IPublishedHandler<IPublishable>> Children;
+        public List<IPublishedHandler<IProgressable>> Children;
 
-        public PublishedHandlerComposite(IPublishable publishable)
+        public PublishedHandlerComposite(IProgressable publishable)
         {
-            Publishable = publishable;
+            Progressable = publishable;
             Children = new();
         }
 
         public double GetPublishedPercent()
         {
-            if (!Publishable.Published)
+            if (!Progressable.Published)
             {
                 return 0.00;
             }
 
-            if (Publishable is Semester)
+            if (Progressable is Semester)
             {
-                Semester s = Publishable as Semester;
+                Semester s = Progressable as Semester;
                 foreach (var c in s.Courses)
                 {
                     Children.Add(new PublishedHandlerComposite(c));
                 }
             }
-            else if (Publishable is Course)
+            else if (Progressable is Course)
             {
-                Course c = Publishable as Course;
+                Course c = Progressable as Course;
                 foreach (var l in c.Lectures)
                 {
                     Children.Add(new PublishedHandlerComposite(l));
                 }
             }
-            else if (Publishable is Lecture)
+            else if (Progressable is Lecture)
             {
-                Lecture l = Publishable as Lecture;
+                Lecture l = Progressable as Lecture;
                 Children.Add(new PublishedHandlerLeaf(l));
                 Children.Add(new PublishedHandlerComposite(l.TaskSet));
             }
-            else if (Publishable is TaskSet)
+            else if (Progressable is TaskSet)
             {
-                TaskSet ts = Publishable as TaskSet;
+                TaskSet ts = Progressable as TaskSet;
                 foreach (var t in ts.Tasks)
                 {
                     Children.Add(new PublishedHandlerLeaf(t));
@@ -62,7 +62,7 @@ namespace PG332_SoftwareDesign_EksamenH21.Handlers
 
             foreach (var c in Children)
             {
-                if (c.Publishable.Published)
+                if (c.Progressable.Published)
                 {
                     returnValue += c.GetPublishedPercent();
                 }

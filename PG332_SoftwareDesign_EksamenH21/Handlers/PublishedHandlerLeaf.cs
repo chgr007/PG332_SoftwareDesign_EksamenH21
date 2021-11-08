@@ -7,18 +7,18 @@ using PG332_SoftwareDesign_EksamenH21.Model;
 
 namespace PG332_SoftwareDesign_EksamenH21.Handlers
 {
-    public class PublishedHandlerLeaf : IPublishedHandler<IPublishable>
+    public class PublishedHandlerLeaf : IPublishedHandler<IProgressable>
     {
-        public IPublishable Publishable { get; }
+        public IProgressable Progressable { get; }
 
         public PublishedHandlerLeaf(IFinishable publishable)
         {
-            Publishable = publishable;
+            Progressable = publishable;
         }
 
         public double GetPublishedPercent()
         {
-            IFinishable f = Publishable as IFinishable;
+            IFinishable f = Progressable as IFinishable;
             if (f.Published)
             {
                 return 1.00;

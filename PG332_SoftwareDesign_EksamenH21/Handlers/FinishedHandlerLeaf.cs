@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PG332_SoftwareDesign_EksamenH21.Handlers
 {
-    public class FinishedHandlerLeaf : IFinishedHandler<IPublishable>
+    public class FinishedHandlerLeaf : IFinishedHandler<IProgressable>
     {
-        public IPublishable Publishable { get; }
+        public IProgressable Publishable { get; }
 
         public FinishedHandlerLeaf(IFinishable progressable)
         {
