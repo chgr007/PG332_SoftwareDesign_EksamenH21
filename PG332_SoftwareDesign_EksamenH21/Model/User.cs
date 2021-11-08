@@ -11,6 +11,7 @@ namespace PG332_SoftwareDesign_EksamenH21.Model
         public Address? Address { get; set; }
         public string? PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string password { get; set; }
         public Specialization? Specialization { get; set; }
         public long? SpecializationId { get; set; }
         public long? UserCoursePlanId { get; set; }

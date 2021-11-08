@@ -8,44 +8,45 @@ using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.EntityFrameworkCore.Storage;
 using PG332_SoftwareDesign_EksamenH21.Model;
 
-// TODO: Finne ut best practice rundt using. Gir mening at scope kun er i metoden dersom connection lukkes automatisk utenfor scope?
+
 namespace PG332_SoftwareDesign_EksamenH21.Repository
 {
     public class UserDao : IUserDao
     {
-   
+        private readonly TrackerContext _trackerContext;
+
+        public UserDao()
+        {
+            _trackerContext = new TrackerContext();
+        }
+
         public void Update(User m)
         {
-            using TrackerContext trackerContext = new TrackerContext();
-            trackerContext.Update(m);
-            trackerContext.SaveChanges();
+            _trackerContext.Update(m);
+            _trackerContext.SaveChanges();
+
         }
 
         public void Save(User m)
         {
-            using TrackerContext trackerContext = new TrackerContext();
-            trackerContext.Add(m);
-            trackerContext.SaveChanges();
+            _trackerContext.Add(m);
+            _trackerContext.SaveChanges();
         }
 
         public User RetrieveById(long id)
         {
-            using TrackerContext trackerContext = new TrackerContext();
-            return trackerContext.Find<User>(id);
+            return _trackerContext.Find<User>(id);
         }
 
         public List<User> ListAll()
         {
-            using TrackerContext trackerContext = new TrackerContext();
-            return trackerContext.Users.ToList();
-
+            return _trackerContext.Users.ToList();
         }
 
         public void Delete(long id)
         {
-            using TrackerContext trackerContext = new TrackerContext();
-            trackerContext.Users.Remove(trackerContext.Users.Find(id));
-            trackerContext.SaveChanges();
+            _trackerContext.Users.Remove(_trackerContext.Users.Find(id));
+            _trackerContext.SaveChanges();
         }
 
         public User RetrieveByEmail(string email)
@@ -60,9 +61,7 @@ namespace PG332_SoftwareDesign_EksamenH21.Repository
 
         public User RetrieveOneByField(Func<User,bool> predicate)
         {
-            using TrackerContext trackerContext = new TrackerContext();
-
-            return trackerContext.Users.FirstOrDefault(predicate);
+            return _trackerContext.Users.FirstOrDefault(predicate);
         }
     }
 }

@@ -82,7 +82,7 @@ namespace Test
         [Test]
         public void AddSpecializationToDB()
         {
-            SpecializationDao specializationDao = new();
+            ISpecializationDao specializationDao = new SpecializationDao();
             Specialization s = new()
             {
                 Name = "Prog",
