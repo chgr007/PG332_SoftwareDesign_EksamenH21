@@ -10,6 +10,7 @@ namespace PG332_SoftwareDesign_EksamenH21
 
         static void Main(string[] args)
         {
+           
             AddDummyData();
             IConsoleUi ui = new ConsoleUi();
             ui.start();

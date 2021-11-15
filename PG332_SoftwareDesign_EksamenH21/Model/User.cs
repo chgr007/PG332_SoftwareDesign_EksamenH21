@@ -27,5 +27,6 @@ namespace PG332_SoftwareDesign_EksamenH21.Model
             User user = (User) obj;
             return (user.Email == Email && user.Id == Id && user.FirstName == FirstName && user.LastName == LastName);
         }
+
     }
 }
